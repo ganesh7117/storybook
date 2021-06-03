@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -93,5 +94,8 @@
       }
     }
   },
-  "defaultProject": "intro-storybook-angular-template"
+  "defaultProject": "intro-storybook-angular-template",
+  "cli": {
+    "analytics": "42289bf2-03b0-448a-b9dc-37f59ef94145"
+  }
 }

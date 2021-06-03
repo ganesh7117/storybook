@@ -1,6 +1,33 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "Food",
+            "id": "interface-Food-3bbc7ff92a163b153eaab9a6d6848326",
+            "file": "src/app/mat-select/select.component.ts",
+            "type": "interface",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { MatSelectModule } from '@angular/material/select';\n\ninterface Food {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss']\n})\nexport class SelectComponent implements OnInit {\n\n  foods: Food[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "properties": [
+                {
+                    "name": "value",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "viewValue",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "classes": [],
     "directives": [],
@@ -134,6 +161,62 @@
             }
         },
         {
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-804c59ffbec5391034fd591d181b485e",
+            "file": "src/app/checkbox/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-checkbox",
+            "styleUrls": [
+                "./checkbox.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-checkbox',\n  templateUrl: './checkbox.component.html',\n  styleUrls: ['./checkbox.component.css']\n})\nexport class CheckboxComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".example-section {\r\n    margin: 12px 0;\r\n  }\r\n  \r\n  .example-margin {\r\n    margin: 0 12px;\r\n  }\r\n  \r\n  ul {\r\n    list-style-type: none;\r\n    margin-top: 4px;\r\n  }",
+                    "styleUrl": "./checkbox.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<section class=\"example-section\">\n    <mat-checkbox class=\"example-margin\">Check me!</mat-checkbox>\n    <mat-checkbox class=\"example-margin\" [disabled]=\"true\">Disabled</mat-checkbox>\n  </section>"
+        },
+        {
             "name": "HeaderComponent",
             "id": "component-HeaderComponent-246e2a69dc126a3bd76c6328dd3b93e2",
             "file": "src/stories/header.component.ts",
@@ -197,7 +280,7 @@
         },
         {
             "name": "LinkComponent",
-            "id": "component-LinkComponent-3dce67f63975b8038711b03f2970d833",
+            "id": "component-LinkComponent-a2e724d5bad24ad9469007c9d69d9729",
             "file": "src/app/components/link/link.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -206,14 +289,32 @@
             "providers": [],
             "selector": "app-link",
             "styleUrls": [
-                "./link.component.css"
+                "./link.component.scss"
             ],
             "styles": [],
             "templateUrl": [
                 "./link.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'primary'",
+                    "line": 11,
+                    "type": "\"primary\" | \"secondary\""
+                },
+                {
+                    "name": "href",
+                    "line": 13,
+                    "type": "string"
+                },
+                {
+                    "name": "target",
+                    "defaultValue": "'_self'",
+                    "line": 15,
+                    "type": "\"_self\" | \"_blank\" | \"_parent\" | \"_top\""
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [
@@ -223,7 +324,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12
+                    "line": 23
                 }
             ],
             "hostBindings": [],
@@ -231,12 +332,12 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-link',\n  templateUrl: './link.component.html',\n  styleUrls: ['./link.component.css']\n})\nexport class LinkComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-link',\n  templateUrl: './link.component.html',\n  styleUrls: ['./link.component.scss']\n})\nexport class LinkComponent implements OnInit {\n\n  @Input()\n  color: 'primary' | 'secondary' = 'primary';\n  @Input()\n  href: string;\n  @Input()\n  target?: '_self' | '_blank' | '_parent' | '_top' = '_self';\n  \n  public get classes(): Array<string> {\n    return ['link', `${this.color}-link`];\n  }\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./link.component.css"
+                    "data": ".link {\r\n    text-decoration: none;\r\n    border-bottom: 1px dotted;\r\n    @media screen and (min-width: 600px) {\r\n      font-size: 1.15em;\r\n    }\r\n  }\r\n  .primary-link {\r\n    color: #ff4785;\r\n    border-color: #ff4785;\r\n  }\r\n  .secondary-link {\r\n    color: #1ea7fd;\r\n    border-color: #1ea7fd;\r\n  }",
+                    "styleUrl": "./link.component.scss"
                 }
             ],
             "stylesData": "",
@@ -244,12 +345,23 @@
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 8
+                "line": 19
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>link works!</p>\n"
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "",
+                        "returnType": "Array<string>",
+                        "line": 17
+                    }
+                }
+            },
+            "templateData": "<a\n  [ngClass]=\"classes\"\n  [href]=\"href\"\n  [target]=\"target\"\n>\n  <ng-content></ng-content>\n</a>"
         },
         {
             "name": "PageComponent",
@@ -312,6 +424,71 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "SelectComponent",
+            "id": "component-SelectComponent-3bbc7ff92a163b153eaab9a6d6848326",
+            "file": "src/app/mat-select/select.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-select",
+            "styleUrls": [
+                "./select.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./select.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "foods",
+                    "defaultValue": "[\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ]",
+                    "type": "Food[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { MatSelectModule } from '@angular/material/select';\n\ninterface Food {\n  value: string;\n  viewValue: string;\n}\n\n@Component({\n  selector: 'app-select',\n  templateUrl: './select.component.html',\n  styleUrls: ['./select.component.scss']\n})\nexport class SelectComponent implements OnInit {\n\n  foods: Food[] = [\n    {value: 'steak-0', viewValue: 'Steak'},\n    {value: 'pizza-1', viewValue: 'Pizza'},\n    {value: 'tacos-2', viewValue: 'Tacos'}\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./select.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 20
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<h4>Basic mat-select</h4>\n<mat-form-field appearance=\"fill\">\n  <mat-label>Favorite food</mat-label>\n  <mat-select>\n    <mat-option *ngFor=\"let food of foods\" [value]=\"food.value\">\n      {{food.viewValue}}\n    </mat-option>\n  </mat-select>\n</mat-form-field>"
         },
         {
             "name": "TaskComponent",
@@ -377,7 +554,13 @@
                             "name": "AppComponent"
                         },
                         {
+                            "name": "CheckboxComponent"
+                        },
+                        {
                             "name": "LinkComponent"
+                        },
+                        {
+                            "name": "SelectComponent"
                         }
                     ]
                 },
@@ -419,6 +602,14 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/task.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/checkbox/stories/checkbox.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -570,9 +761,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/checkbox/stories/checkbox.stories.ts",
+                "type": "Story<CheckboxComponent>",
+                "defaultValue": "() => ({\r\n    component: CheckboxComponent,\r\n    props: {\r\n        color: 'primary',\r\n        content: 'Visit Storybook',\r\n        href: 'https://storybook.js.org/',\r\n        target: '_blank',\r\n      },\r\n    template: `<section class=\"example-section\">\r\n    <mat-checkbox class=\"example-margin\">Check me!</mat-checkbox>\r\n    <mat-checkbox class=\"example-margin\" [disabled]=\"true\">Disabled</mat-checkbox>\r\n  </section>`,\r\n  })"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/link/stories/link.stories.ts",
                 "type": "Story<LinkComponent>",
-                "defaultValue": "() => ({\r\n    component: LinkComponent,\r\n    template: `<app-link></app-link>`,\r\n  })"
+                "defaultValue": "() => ({\r\n    component: LinkComponent,\r\n    props: {\r\n        color: 'primary',\r\n        content: 'Visit Storybook',\r\n        href: 'https://storybook.js.org/',\r\n        target: '_blank',\r\n      },\r\n    template: `<app-link\r\n        [color]=\"color\"\r\n        [href]=\"href\"\r\n        [target]=\"target\">{{ content }}\r\n      </app-link>`,\r\n  })"
             }
         ],
         "functions": [],
@@ -621,6 +820,24 @@
                     "defaultValue": "args => ({\r\n  props: {\r\n    ...args,\r\n    onPinTask: actionsData.onPinTask,\r\n    onArchiveTask: actionsData.onArchiveTask,\r\n  },\r\n})"
                 }
             ],
+            "src/app/checkbox/stories/checkbox.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/checkbox/stories/checkbox.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/checkbox/stories/checkbox.stories.ts",
+                    "type": "Story<CheckboxComponent>",
+                    "defaultValue": "() => ({\r\n    component: CheckboxComponent,\r\n    props: {\r\n        color: 'primary',\r\n        content: 'Visit Storybook',\r\n        href: 'https://storybook.js.org/',\r\n        target: '_blank',\r\n      },\r\n    template: `<section class=\"example-section\">\r\n    <mat-checkbox class=\"example-margin\">Check me!</mat-checkbox>\r\n    <mat-checkbox class=\"example-margin\" [disabled]=\"true\">Disabled</mat-checkbox>\r\n  </section>`,\r\n  })"
+                }
+            ],
             "src/app/components/link/stories/link.stories.ts": [
                 {
                     "name": "Base",
@@ -636,7 +853,7 @@
                     "subtype": "variable",
                     "file": "src/app/components/link/stories/link.stories.ts",
                     "type": "Story<LinkComponent>",
-                    "defaultValue": "() => ({\r\n    component: LinkComponent,\r\n    template: `<app-link></app-link>`,\r\n  })"
+                    "defaultValue": "() => ({\r\n    component: LinkComponent,\r\n    props: {\r\n        color: 'primary',\r\n        content: 'Visit Storybook',\r\n        href: 'https://storybook.js.org/',\r\n        target: '_blank',\r\n      },\r\n    template: `<app-link\r\n        [color]=\"color\"\r\n        [href]=\"href\"\r\n        [target]=\"target\">{{ content }}\r\n      </app-link>`,\r\n  })"
                 }
             ],
             "src/environments/environment.prod.ts": [
@@ -770,7 +987,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -783,12 +1000,41 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/checkbox/checkbox.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CheckboxComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/checkbox/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/checkbox/stories/checkbox.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/link/link.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "LinkComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -809,6 +1055,24 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/mat-select/select.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/mat-select/select.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Food",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

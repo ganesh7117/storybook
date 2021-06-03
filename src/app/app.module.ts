@@ -1,19 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LinkComponent } from './components/link/link.component';
-import { MatSelectComponent } from './mat-select/mat-select.component';
+import { SelectComponent } from './mat-select/select.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     LinkComponent,
-    MatSelectComponent
+    SelectComponent,
+    CheckboxComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
